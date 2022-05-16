@@ -13,13 +13,13 @@ PIPELINE_CREATION_TEMPLATE = ATLAS_URL + "pipeline/{}/{}/{}"
 TEAM_CREATION_TEMPLATE = ATLAS_URL + "team/{}/{}/{}"
 PIPELINE_SYNC_TEMPLATE = ATLAS_URL+"sync/{}/{}/{}/{}"
 
-ARGO_CD_CREDS = {'username': "admin", 'password': "bmc1kSiRPhx7n3Gt"}
+ARGO_CD_CREDS = {'username': "admin", 'password': "e3k8tG1x4mbwXMJ4"}
 REVISION_HASH = 'ROOT_COMMIT'
 
 
 def get_auth_cookie():
     body = json.dumps(ARGO_CD_CREDS).encode("utf-8")
-    r = requests.post('https://localhost:8080/api/v1/session', data=body, verify=False)
+    r = requests.post('https://192.168.64.12:31870/api/v1/session', data=body, verify=False)
     token = json.loads(r.text)['token']
     cookie = {"Authorization": token}
     return cookie
